@@ -1,11 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import ReservationCard from '../src/reservation-card/ReservationCard.js'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Hello World
+        <ReservationCard />
       </header>
     </div>
   );
