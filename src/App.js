@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchReservations }
+import { fetchReservations } from './actions/reservationActions'
+import ReservationList from './ReservationList'
 
 import './App.css';
 import Reservation from '../src/reservation-card/Reservation.js'
