@@ -24,14 +24,12 @@ export default class Reservation extends React.Component {
     
     render () {
         return(
-            <div>
-                {this.state.reservations.map((reservation) => 
-                    <h3>
-                        Reservation Date: {this.convertDate(reservation.reservation_date)}<br/>
-                        Guide: {reservation.guide.first_name}<br/>
-                        Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}
-                    </h3> )}
-            </div>
+            this.state.reservations.map((reservation) => 
+                <div className="reservationCard">
+                    Reservation Date: {this.convertDate(reservation.reservation_date)}<br/>
+                    Guide: { reservation.guide_id ? reservation.guide.first_name : "No Guide Selected" }<br/>
+                    Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}
+                </div>)
         )
     }
 }

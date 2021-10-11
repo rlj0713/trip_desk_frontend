@@ -1,12 +1,20 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchReservations }
+
 import './App.css';
-import ReservationCard from '../src/reservation-card/ReservationCard.js'
+import Reservation from '../src/reservation-card/Reservation.js'
+import Navigation from '../src/nav-bar/Navigation.js'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <ReservationCard />
+      <header className="app-header">
+        <Navigation />
       </header>
+        <body>
+          <Reservation />
+        </body>
     </div>
   );
 }
