@@ -4,7 +4,6 @@ import { fetchReservations } from './actions/reservationActions'
 import ReservationsList from './ReservationsList'
 
 import './App.css';
-import Reservation from './reservation-card/Reservation.js'
 import Navigation from '../src/nav-bar/Navigation.js'
 
 class App extends Component {
