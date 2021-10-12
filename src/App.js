@@ -28,8 +28,8 @@ class App extends Component {
           <Navigation />
         </header>
         <body>
-          Old Div: <Reservation />
-          New Div: {this.handleLoading()}
+          {/* Old Div: <Reservation /> crated using react, not redux*/}
+          {this.handleLoading()}
         </body>
       </div>
     );
@@ -49,4 +49,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchReservations })(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

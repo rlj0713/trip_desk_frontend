@@ -8,23 +8,16 @@ class ReservationsList extends React.Component {
     let newDate = date.split('T')[0].split('-')
     return `${months[parseInt(newDate[1]) - 1]}, ${newDate[2]} ${newDate[0]}`
   }
-  
-  listReservations = () => {
-    return 
-        this.props.reservations.map(reservation => 
+
+  render() {
+    console.log(this.props.reservations)
+    return (
+      this.props.reservations.map(reservation => 
         <div key={reservation.id} className="reservationCard">
             Reservation Date: {this.convertDate(reservation.reservation_date)}<br/>
             Guide: { reservation.guide_id ? reservation.guide.first_name : "No Guide Selected" }<br/>
             Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}
         </div>)
-  }
-
-  render() {
-    console.log(this.props.reservations)
-    return (
-      <div>
-        {this.listReservations()}
-      </div>
     )
   }
 }
