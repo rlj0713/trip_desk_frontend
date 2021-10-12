@@ -16,7 +16,11 @@ class ReservationsList extends React.Component {
         <div key={reservation.id} className="reservationCard">
             Reservation Date: {this.convertDate(reservation.reservation_date)}<br/>
             Guide: { reservation.guide_id ? reservation.guide.first_name : "No Guide Selected" }<br/>
-            Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}
+            Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}<br/>
+            <div>
+              <button className="crudButton">Edit</button>
+              <button className="crudButton">Delete</button>
+            </div>
         </div>)
     )
   }
