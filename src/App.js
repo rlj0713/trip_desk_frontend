@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchReservations } from './actions/reservationActions'
+import { deleteReservations } from './actions/reservationActions'
 import ReservationsList from './ReservationsList'
 
 import './App.css';
@@ -9,14 +10,16 @@ import Navigation from '../src/nav-bar/Navigation.js'
 class App extends Component {
   
   componentDidMount() {
-    this.props.fetchReservations()
+    this.props.fetchReservationsWithDispatch()
   }
   
   handleLoading = () => {
     if(this.props.loading) {
       return <div>Loading...</div>
     } else {
-      return <ReservationsList reservations={this.props.reservations} />
+      return <div className="dateCard">
+        <ReservationsList reservations={this.props.reservations} />
+      </div>
     }
   }
   
@@ -27,7 +30,6 @@ class App extends Component {
           <Navigation />
         </header>
         <body>
-          {/* Old Div: <Reservation /> crated using react, not redux*/}
           {this.handleLoading()}
         </body>
       </div>
@@ -44,7 +46,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchReservations: () => dispatch(fetchReservations())
+    fetchReservationsWithDispatch: () => dispatch(fetchReservations()),
   }
 }
 

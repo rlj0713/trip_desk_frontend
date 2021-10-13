@@ -1,4 +1,6 @@
 import React from 'react';
+import { deleteReservations } from './actions/reservationActions';
+import { connect } from 'react-redux';
 
 class ReservationsList extends React.Component {
   
@@ -9,8 +11,12 @@ class ReservationsList extends React.Component {
     return `${months[parseInt(newDate[1]) - 1]}, ${newDate[2]} ${newDate[0]}`
   }
 
+  handleClick(res) {
+    this.props.deleteReservationsWithDispatch(res)
+  }
+
   render() {
-    console.log(this.props.reservations)
+    // console.log(this.props.reservations[0])
     return (
       this.props.reservations.map(reservation => 
         <div key={reservation.id} className="reservationCard">
@@ -18,12 +24,21 @@ class ReservationsList extends React.Component {
             Guide: { reservation.guide_id ? reservation.guide.first_name : "No Guide Selected" }<br/>
             Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}<br/>
             <div>
+              {/* <button className="crudButton" onClick={() => this.handleClick(reservation)}>Delete</button> */}
+              <button className="crudButton" onClick={() => this.handleClick(reservation)}>Delete</button>
+              {/* <button className="crudButton" onClick={() => dispatch({ type:"DELETE_RESERVATION" })}>Delete</button> */}
               <button className="crudButton">Edit</button>
-              <button className="crudButton">Delete</button>
             </div>
         </div>)
     )
   }
 }
 
-export default ReservationsList;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteReservationsWithDispatch: (anyReservationObject) => dispatch(deleteReservations(anyReservationObject))
+  }
+} 
+  
+
+export default connect(null, mapDispatchToProps)(ReservationsList);
