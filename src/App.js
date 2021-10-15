@@ -20,16 +20,6 @@ class App extends Component {
     this.props.fetchReservationsWithDispatch()
   }
   
-  handleLoading = () => {
-    if(this.props.loading) {
-      return <div>Loading...</div>
-    } else {
-      return <div className="dateCard">
-        <ReservationsList reservations={this.props.reservations} />
-      </div>
-    }
-  }
-  
   render() {
     return (
 
@@ -42,7 +32,6 @@ class App extends Component {
           <body>
             <Route exact path="/" render={() => <div>Home</div>} />
             <Route path='/reservations' render={routerProps => <ReservationsPage {...routerProps} reservations={this.props.reservations}/>}/>
-            {this.handleLoading()}
           </body>
         </div>
 
