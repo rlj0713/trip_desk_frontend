@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import './App.css';
 import { connect } from 'react-redux';
 import { fetchReservations } from './actions/reservationActions'
 import { deleteReservations } from './actions/reservationActions'
+
 import ReservationsList from './components/ReservationsList'
+import Navigation from './components/Navigation.js'
 
-import './App.css';
-import Navigation from '../src/nav-bar/Navigation.js'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
 
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 class App extends Component {
   
   componentDidMount() {
@@ -28,15 +31,18 @@ class App extends Component {
   render() {
     return (
 
-      <div className="App">
-        <header className="app-header">
-          <Navigation />
-        </header>
-        <body>
-          {this.handleLoading()}
-        </body>
-      </div>
+      <Router>
 
+        <div className="App">
+          <header className="app-header">
+            <Navigation />
+          </header>
+          <body>
+            {this.handleLoading()}
+          </body>
+        </div>
+
+      </Router>
     );
   }
 }

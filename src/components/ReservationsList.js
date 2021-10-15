@@ -1,6 +1,7 @@
 import React from 'react';
 import { deleteReservations } from '../actions/reservationActions';
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 
 class ReservationsList extends React.Component {
   
@@ -16,7 +17,6 @@ class ReservationsList extends React.Component {
   }
 
   render() {
-    // console.log(this.props.reservations[0])
     return (
       this.props.reservations.map(reservation => 
         <div key={reservation.id} className="reservationCard">
