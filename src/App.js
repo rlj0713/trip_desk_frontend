@@ -29,10 +29,8 @@ class App extends Component {
           <header className="app-header">
             <Navigation />
           </header>
-          <body>
-            <Route exact path="/" render={() => <div>Home</div>} />
-            <Route path='/reservations' render={routerProps => <ReservationsPage {...routerProps} reservations={this.props.reservations}/>}/>
-          </body>
+          <Route exact path="/" render={() => <a class="home" href="http://localhost:3001/reservations">Start Booking</a>} />
+          <Route path='/reservations' render={routerProps => <ReservationsPage {...routerProps} reservations={this.props.reservations}/>}/>
         </div>
 
       </Router>
