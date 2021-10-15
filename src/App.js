@@ -5,6 +5,8 @@ import { fetchReservations } from './actions/reservationActions'
 import { deleteReservations } from './actions/reservationActions'
 
 import ReservationsList from './components/ReservationsList'
+import ReservationsPage from './containers/ReservationPage'
+import ReservationsShow from './components/ReservationShow'
 import Navigation from './components/Navigation.js'
 
 import {
@@ -38,6 +40,8 @@ class App extends Component {
             <Navigation />
           </header>
           <body>
+            <Route exact path="/" render={() => <div>Home</div>} />
+            <Route path='/reservations' render={routerProps => <ReservationsPage {...routerProps} reservations={this.props.reservations}/>}/>
             {this.handleLoading()}
           </body>
         </div>

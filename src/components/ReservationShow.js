@@ -1,5 +1,4 @@
 import React from 'react';
-import { match } from 'sinon';
 
 const ReservationShow = ( {match, reservations } ) => {
     return (
@@ -8,3 +7,5 @@ const ReservationShow = ( {match, reservations } ) => {
         </div>
     )
 }
+
+export default ReservationShow;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route } from "react-router-dom";
-import ReservationList from "../components/ReservationList"
+import ReservationsList from "../components/ReservationsList"
 import ReservationShow from "../components/ReservationShow"
 
 const ReservationPage = ({ match, reservations }) => (
     <div>
-        <ReservationList reservations={reservations} />
+        <ReservationsList reservations={reservations} />
         <Route
             exact
             path={`${match.url}/:reservationId`}
