@@ -1,5 +1,5 @@
 import React from 'react';
-import { deleteReservations } from './actions/reservationActions';
+import { deleteReservations } from '../actions/reservationActions';
 import { connect } from 'react-redux';
 
 class ReservationsList extends React.Component {
@@ -24,9 +24,7 @@ class ReservationsList extends React.Component {
             Guide: { reservation.guide_id ? reservation.guide.first_name : "No Guide Selected" }<br/>
             Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}<br/>
             <div>
-              {/* <button className="crudButton" onClick={() => this.handleClick(reservation)}>Delete</button> */}
               <button className="crudButton" onClick={() => this.handleClick(reservation)}>Delete</button>
-              {/* <button className="crudButton" onClick={() => dispatch({ type:"DELETE_RESERVATION" })}>Delete</button> */}
               <button className="crudButton">Edit</button>
             </div>
         </div>)

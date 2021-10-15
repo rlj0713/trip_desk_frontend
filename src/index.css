@@ -43,6 +43,11 @@ a:link {
   font-weight: bold;
 }
 
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
 button {
   background-color: #ffb142;
   border-color: rgb(63, 63, 63);

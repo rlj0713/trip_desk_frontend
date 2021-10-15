@@ -8,10 +8,8 @@ export default class Navigation extends React.Component {
             <nav className="nav">
                 <a href="#">Home</a>
                 <a href="#">Create Reservation</a>
-                <a href="#">View</a>
             </nav>
         )
     }
-
 
 }

@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchReservations } from './actions/reservationActions'
 import { deleteReservations } from './actions/reservationActions'
-import ReservationsList from './ReservationsList'
+import ReservationsList from './components/ReservationsList'
 
 import './App.css';
 import Navigation from '../src/nav-bar/Navigation.js'
 
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 class App extends Component {
   
   componentDidMount() {
@@ -25,6 +27,7 @@ class App extends Component {
   
   render() {
     return (
+
       <div className="App">
         <header className="app-header">
           <Navigation />
@@ -33,6 +36,7 @@ class App extends Component {
           {this.handleLoading()}
         </body>
       </div>
+
     );
   }
 }
