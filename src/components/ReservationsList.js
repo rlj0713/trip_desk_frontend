@@ -2,6 +2,7 @@ import React from 'react';
 import { deleteReservations } from '../actions/reservationActions';
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
+import ReservationShow from "./ReservationShow";
 
 class ReservationsList extends React.Component {
   
@@ -12,11 +13,15 @@ class ReservationsList extends React.Component {
     return `${months[parseInt(newDate[1]) - 1]}, ${newDate[2]} ${newDate[0]}`
   }
 
-  handleClick(res) {
+  handleDelete(res) {
     let r = window.confirm("Are you sure you want to remove this reservation?");
     if (r == true) {
       this.props.deleteReservationsWithDispatch(res)
     }
+  }
+
+  handleEdit(res) {
+    window.location.replace(`http://localhost:3001/reservations/${res.id}`)
   }
 
   render() {
@@ -27,8 +32,8 @@ class ReservationsList extends React.Component {
             Guide: { reservation.guide_id ? reservation.guide.first_name : "No Guide Selected" }<br/>
             Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}<br/>
             <div>
-              <button className="crudButton" onClick={() => this.handleClick(reservation)}>Delete</button>
-              <button className="crudButton">Edit</button>
+              <button className="crudButton" onClick={() => this.handleDelete(reservation)}>Delete</button>
+              <button className="crudButton" onClick={() => this.handleEdit(reservation)}>Edit</button>
             </div>
         </div>)
     )

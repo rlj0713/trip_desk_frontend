@@ -7,6 +7,7 @@ import { deleteReservations } from './actions/reservationActions'
 import ReservationsList from './components/ReservationsList'
 import ReservationsPage from './containers/ReservationPage'
 import ReservationsShow from './components/ReservationShow'
+import ReservationNew from './components/ReservationNew'
 import Navigation from './components/Navigation.js'
 
 import {
@@ -29,8 +30,13 @@ class App extends Component {
           <header className="app-header">
             <Navigation />
           </header>
-          <Route exact path="/" render={() => <a class="home" href="http://localhost:3001/reservations">Start Booking</a>} />
-          <Route path='/reservations' render={routerProps => <ReservationsPage {...routerProps} reservations={this.props.reservations}/>}/>
+          <Route exact path="/" render={routerProps => <ReservationsList {...routerProps} reservations={this.props.reservations}/>}/>
+          
+          <Route path='/reservations/new' render={routerProps => <ReservationNew {...routerProps} reservations={this.props.reservations}/>}/>
+          
+          <Route path='/reservations' render={routerProps => <ReservationsList {...routerProps} reservations={this.props.reservations}/>}/>
+
+          
         </div>
 
       </Router>

@@ -1,17 +1,27 @@
-import React from 'react';
-import { Route } from "react-router-dom";
-import ReservationsList from "../components/ReservationsList"
-import ReservationShow from "../components/ReservationShow"
+// import React from 'react';
+// import ReservationsList from "../components/ReservationsList"
+// import ReservationShow from "../components/ReservationShow"
+// import {
+//     BrowserRouter as Router,
+//     Route
+//   } from 'react-router-dom';
 
-const ReservationPage = ({ match, reservations }) => (
-    <div>
-        <ReservationsList reservations={reservations} />
-        <Route
-            exact
-            path={`${match.url}/:reservationId`}
-            render={(routerProps) => <ReservationShow {...routerProps} reservations={reservations} />}
-        />
-    </div>
-)
+// const ReservationPage = ({ match, reservations }) => (
+    
+//     <Router>
 
-export default ReservationPage
+//         <div>
+//             <Route
+//                 exact
+//                 path={`${match.url}/:reservationId`}
+//                 render={(routerProps) => <ReservationShow {...routerProps}
+//                 reservations={reservations} />}
+//                 />
+//             <Route path={`${match.url}/:movieId`} render={routerProps => <ReservationShow {...routerProps} reservations={reservations} /> }/>
+//             <ReservationsList reservations={reservations} />
+//         </div>
+
+//     </Router>
+// )
+
+// export default ReservationPage

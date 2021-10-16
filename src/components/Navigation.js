@@ -7,7 +7,7 @@ export default class Navigation extends React.Component {
         return(
             <nav className="nav">
                 <a href="http://localhost:3001/">Home</a>
-                <a href="#">Create Reservation</a>
+                <a href="http://localhost:3001/reservations/new">Create Reservation</a>
             </nav>
         )
     }
