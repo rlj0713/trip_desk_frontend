@@ -22,10 +22,9 @@ const reservationsReducer = (state = { reservations: [], loading: false }, actio
                 reservations: newRes
             }
         case 'CREATE_RESERVATION':
-            const createdRes = {first_name: action.payload.first_name}
             return {
                 ...state,
-                reservations: [...state.reservations, createdRes]
+                reservations: [...state.reservations, this.state]
             }
 
         default:

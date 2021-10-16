@@ -10,7 +10,7 @@ class ReservationNew extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-          date: new Date(),
+          reservation_date: new Date(),
           first_name: '',
           last_name: '',
           guide_id: null
@@ -24,7 +24,7 @@ class ReservationNew extends React.Component {
     
       handleDateChange(date) {
         this.setState({
-          date: date
+          reservation_date: date
         })
       }
 
@@ -51,8 +51,8 @@ class ReservationNew extends React.Component {
     
       onFormSubmit(e) {
         e.preventDefault();
-        console.log(this.state)
-        // this.props.createReservation()
+        // const userInput = this.state
+        this.props.createReservationWithDispatch(this.state)
       }
     
     render() {
@@ -73,7 +73,7 @@ class ReservationNew extends React.Component {
             />
             <DatePicker
                 className="datepicker"
-                selected={this.state.date}
+                selected={this.state.reservation_date}
                 onChange={this.handleDateChange}
                 name="date"
                 dateFormat="MM/dd/yyyy"
@@ -84,6 +84,7 @@ class ReservationNew extends React.Component {
                 className="input"
                 onChange={this.handleGuideChange}
                 >
+                    <option>Unselected</option>
                     <option value="1">Brady Chadley</option>
                     <option value="2">Shred McNasty</option>
                     <option value="3">Broseph Broseidon</option>
@@ -94,10 +95,17 @@ class ReservationNew extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        reservations: state.reservations,
+        loading: state.loading
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
-      createReservationWithDispatch: () => dispatch(createReservation())
+      createReservationWithDispatch: (userInput) => dispatch(createReservation(userInput))
     }
   } 
 
-export default connect(null, mapDispatchToProps)(ReservationNew);
+export default connect(mapStateToProps, mapDispatchToProps)(ReservationNew);
