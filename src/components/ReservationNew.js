@@ -84,7 +84,7 @@ class ReservationNew extends React.Component {
                 className="input"
                 onChange={this.handleGuideChange}
                 >
-                    <option>Unselected</option>
+                    <option value="0">Unselected</option>
                     <option value="1">Brady Chadley</option>
                     <option value="2">Shred McNasty</option>
                     <option value="3">Broseph Broseidon</option>

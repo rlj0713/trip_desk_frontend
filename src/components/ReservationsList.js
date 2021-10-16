@@ -1,8 +1,6 @@
 import React from 'react';
 import { deleteReservations } from '../actions/reservationActions';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
-import ReservationShow from "./ReservationShow";
 
 class ReservationsList extends React.Component {
   

@@ -22,10 +22,11 @@ const reservationsReducer = (state = { reservations: [], loading: false }, actio
                 reservations: newRes
             }
         case 'CREATE_RESERVATION':
-            return {
-                ...state,
-                reservations: [...state.reservations, this.state]
-            }
+            // console.log('hello')
+            // return {
+                // ...state,
+                // reservations: [...state.reservations, this.state]
+            // }
 
         default:
             return state;
