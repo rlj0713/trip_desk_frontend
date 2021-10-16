@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { fetchReservations } from './actions/reservationActions'
 import { deleteReservations } from './actions/reservationActions'
+import { createReservation } from './actions/reservationActions'
 
 import ReservationsList from './components/ReservationsList'
 import ReservationsPage from './containers/ReservationPage'

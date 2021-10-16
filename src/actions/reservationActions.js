@@ -10,7 +10,6 @@ export const fetchReservations = () => {
     }
 }
 
-// Make userInput an Object
 export const deleteReservations = (reservationObject) => {
     
     return(dispatch) => {
@@ -23,4 +22,16 @@ export const deleteReservations = (reservationObject) => {
         })
     }
     
+}
+
+export const createReservation = () => {
+    return(dispatch) => {
+
+        return fetch('http://localhost:3000/reservations/new.json'), { method: "POST" }
+        .then(response => {
+            return response.json()
+        }).then(responseJSON => {
+            dispatch({ type: 'CREATE_RESERVATION', reservations: responseJSON })
+        })
+    }
 }
