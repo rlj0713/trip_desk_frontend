@@ -43,9 +43,10 @@ export const createReservation = (userInput) => {
     
 // Data is updating on the back-end but the global store is not updating!
     return(dispatch) => {
-        console.log("this ran")
         fetch('http://localhost:3000/reservations', configObj)
         .then(response => response.json())
-        .then(json => console.log(json['data']))
+        .then(json => {
+            dispatch({ type: 'CREATE_RESERVATION', payload: json['data'] }) 
+        })
     }
 }

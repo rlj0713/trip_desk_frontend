@@ -53,6 +53,7 @@ class ReservationNew extends React.Component {
         e.preventDefault();
         // const userInput = this.state
         this.props.createReservationWithDispatch(this.state)
+        window.location.replace(`http://localhost:3001/reservations`)
       }
     
     render() {
