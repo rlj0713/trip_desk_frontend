@@ -23,6 +23,7 @@ export const deleteReservations = (reservationObject) => {
     
 }
 
+// Go back and add customer_id after creating full CRUD for customer
 export const createReservation = (userInput) => {
     let _data = {
         reservation_date: userInput.reservation_date,

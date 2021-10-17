@@ -6,7 +6,7 @@ import { deleteReservations } from './actions/reservationActions'
 import { createReservation } from './actions/reservationActions'
 
 import ReservationsList from './components/ReservationsList'
-import ReservationsPage from './containers/ReservationPage'
+// import ReservationsPage from './containers/ReservationPage'
 import ReservationsShow from './components/ReservationShow'
 import ReservationNew from './components/ReservationNew'
 import Navigation from './components/Navigation.js'
