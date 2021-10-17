@@ -18,10 +18,6 @@ class ReservationsList extends React.Component {
     }
   }
 
-  handleEdit(res) {
-    window.location.replace(`http://localhost:3001/reservations/${res.id}`)
-  }
-
   render() {
     return (
       this.props.reservations.map(reservation => 
@@ -31,7 +27,7 @@ class ReservationsList extends React.Component {
             Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}<br/>
             <div>
               <button className="crudButton" onClick={() => this.handleDelete(reservation)}>Delete</button>
-              <button className="crudButton" onClick={() => this.handleEdit(reservation)}>Edit</button>
+              {/* <button className="crudButton" onClick={() => this.handleEdit(reservation)}>Edit</button> */}
             </div>
         </div>)
     )

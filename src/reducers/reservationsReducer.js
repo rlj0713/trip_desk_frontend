@@ -22,7 +22,6 @@ const reservationsReducer = (state = { reservations: [], loading: false }, actio
                 reservations: newRes
             }
         case 'CREATE_RESERVATION':
-            console.log(action.payload)
             return {
                 ...state,
                 reservations: [...state.reservations, action.payload]

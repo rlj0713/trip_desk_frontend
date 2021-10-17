@@ -7,9 +7,20 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk'
-import reservationsReducer from './reducers/reservationsReducer.js';
 
-const store = createStore(reservationsReducer, applyMiddleware(thunk)) 
+import reservationsReducer from './reducers/reservationsReducer.js';
+import guidesReducer from './reducers/guidesReducer.js';
+import {combineReducers} from 'redux'
+
+const allReducers = combineReducers({
+  reservationsReducer,
+  guidesReducer
+})
+
+// Why do my fetch requests fail when using combineReducer?
+// Answer: I needed to specify reservations: state.reservationsReducer.reservations
+//   when I mapStateToProps. 
+const store = createStore(allReducers, applyMiddleware(thunk)) 
 
 ReactDOM.render(
   <Provider store={store}>
