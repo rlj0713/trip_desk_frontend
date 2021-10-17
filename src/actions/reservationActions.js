@@ -26,21 +26,26 @@ export const deleteReservations = (reservationObject) => {
 export const createReservation = (userInput) => {
     let _data = {
         reservation_date: userInput.reservation_date,
-        first_name: userInput.first_name,
-        last_name: userInput.first_name,
+        // first_name: userInput.first_name,
+        // last_name: userInput.first_name,
+        customer_id: 1,
         guide_id: userInput.guide_id
     }
-    
-// Data is making it to the fetch, but the back-end does not recognize the request.
-    return(dispatch) => {
 
-        fetch('http://localhost:3000/reservations/new.json', {
-            method: "POST",
-            body: JSON.stringify(_data),
-            headers: {"Content-type": "application/json; charset=UTF-8"}
-        })
+    const configObj = {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify(_data)
+    }
+    
+// Data is updating on the back-end but the global store is not updating!
+    return(dispatch) => {
+        console.log("this ran")
+        fetch('http://localhost:3000/reservations', configObj)
         .then(response => response.json())
-        .then(data =>  console.log(data))
-        .catch(err => console.log(err))
+        .then(json => console.log(json['data']))
     }
 }
