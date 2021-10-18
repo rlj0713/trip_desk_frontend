@@ -38,7 +38,7 @@ header {
 
 a:link {
   font-size: 150%;
-  padding: 1%;
+  padding: 2%;
   text-decoration: none;
   color: black;
   font-weight: bold;
@@ -160,6 +160,8 @@ button {
   position: relative;
   bottom: 20px;
   right: 20px;
+  float: right;
+  margin-top: 210px;
   background-color: #ffb142;
   border-color: rgb(63, 63, 63);
   border-radius: 8px;
