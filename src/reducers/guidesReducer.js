@@ -1,4 +1,4 @@
-const guidesReducer = (state = { guides: [], loading: false }, action) => {
+const guidesReducer = (state = { guides: [], loading: true }, action) => {
     switch(action.type) {
         case 'LOADING_GUIDES':
             return {
@@ -13,13 +13,13 @@ const guidesReducer = (state = { guides: [], loading: false }, action) => {
             loading: false
             }
         case 'DELETE_GUIDE':
-            const newRes = state.guides.filter(res => {
-                return res.id !== action.payload.id
+            const newGuides = state.guides.filter(guide => {
+                return guide.id !== action.payload.id
             })
 
             return {
                 ...state,
-                guides: newRes
+                guides: newGuides
             }
         case 'CREATE_GUIDE':
             return {

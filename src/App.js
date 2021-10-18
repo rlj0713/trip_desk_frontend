@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
+
 import { connect } from 'react-redux';
-
-import { fetchReservations, deleteReservations, createReservation } from './actions/reservationActions'
-
-// Add commas and make 3 lines 1 later
-import { fetchGuides } from './actions/guideActions'
-import { deleteGuides } from './actions/guideActions'
-import { createGuide } from './actions/guideActions'
+import { fetchReservations } from './actions/reservationActions'
 
 import Navigation from './components/Navigation.js'
 
 import ReservationsList from './components/ReservationsList'
-import ReservationsShow from './components/ReservationShow'
 import ReservationNew from './components/ReservationNew'
 
 import GuidesList from './components/GuidesList'
-// import GuidesShow from './components/GuideShow'
 // import GuideNew from './components/GuideNew'
 
 import {
@@ -62,7 +55,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchReservationsWithDispatch: () => dispatch(fetchReservations())
-    // fetchGuidesWithDispatch: () => dispatch(fetchGuides())
   }
 }
 

@@ -13,7 +13,7 @@ class ReservationsList extends React.Component {
 
   handleDelete(res) {
     let r = window.confirm("Are you sure you want to remove this reservation?");
-    if (r == true) {
+    if (r === true) {
       this.props.deleteReservationsWithDispatch(res)
     }
   }

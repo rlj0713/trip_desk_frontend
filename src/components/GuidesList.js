@@ -1,6 +1,5 @@
 import React from 'react';
-import { deleteGuides } from '../actions/guideActions';
-import { fetchGuides } from '../actions/guideActions';
+import { fetchGuides, deleteGuides } from '../actions/guideActions';
 import { connect } from 'react-redux';
 
 class GuidesList extends React.Component {
@@ -11,32 +10,37 @@ class GuidesList extends React.Component {
 
     handleDelete(guide) {
         let g = window.confirm("Are you sure you want to remove this guide?");
-            if (g == true) {
+            if (g === true) {
                 this.props.deleteGuidesWithDispatch(g)
         }
     }
 
-    // Why is this.props.guides undefined?
+    displayGuides() {
+        return (    
+            this.props.guides.map(guide => 
+                <div key={guide.id} className="guideCard">
+                    First Name: { guide.attributes.first_name }<br/>
+                    Last Name: { guide.attributes.last_name }<br/>
+                    <div>
+                    <   button className="crudButtonGuide" onClick={() => this.handleDelete(guide)}>Delete</button>
+                    </div>
+                </div>)
+        )
+    }
+
     render() {
-        console.log(`Guide List ${this.props.guides}`)
-    return (
-        <div></div>
-    //   this.props.guides.map(guide => 
-    //     <div key={guide.id} className="guideCard">
-    //         First Name: { guide.first_name }<br/>
-    //         Last Name: { guide.last_name }<br/>
-    //         <div>
-    //           <button className="crudButton" onClick={() => this.handleDelete(guide)}>Delete</button>
-    //         </div>
-    //     </div>)
-    )
-  }
+        return (
+            <div>
+                {this.props.guides ? this.displayGuides() : "Loading..."}
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = (state) => {
     return {
-      guides: state.guides,
-      loading: state.loading
+      guides: state.guidesReducer.guides.data,
+      loading: state.guidesReducer.loading
     }
   }
 
@@ -48,4 +52,4 @@ const mapDispatchToProps = (dispatch) => {
 } 
   
 
-export default connect(null, mapDispatchToProps)(GuidesList);
+export default connect(mapStateToProps, mapDispatchToProps)(GuidesList);
