@@ -50,7 +50,7 @@ class GuideNew extends React.Component {
                 placeholder="Last Name"
                 onChange={this.handleLastNameChange}
             />
-            <button type="submit">Add Guide</button>
+            <button class="crudButtonNewGuide" type="submit">Add Guide</button>
           </form>
         );
     }

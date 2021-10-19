@@ -29,7 +29,7 @@ export const deleteGuides = (guideObject) => {
 export const createGuide = (userInput) => {
     let _data = {
         first_name: userInput.first_name,
-        last_name: userInput.first_name
+        last_name: userInput.last_name
     }
 
     const configObj = {

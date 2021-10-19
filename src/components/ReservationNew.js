@@ -11,44 +11,17 @@ class ReservationNew extends React.Component {
         super(props)
         this.state = {
           reservation_date: new Date(),
-          first_name: '',
-          last_name: '',
           guide_id: null
         };
         this.handleDateChange = this.handleDateChange.bind(this);
-        this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
-        this.handleLastNameChange = this.handleLastNameChange.bind(this);
         this.handleGuideChange = this.handleGuideChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
     }
     
-    // Fix this redundancy
-    // handleAnyChange(event, key) {
-    //   event.preventDefault();
-    //   this.setState({
-    //     key: event.target.value
-    //   })
-    // }
-
-
       handleDateChange(date) {
         this.setState({
           reservation_date: date
         })
-      }
-
-      handleFirstNameChange(e) {        
-        e.preventDefault();
-        this.setState({
-            first_name: e.target.value
-          })  
-      }
-
-      handleLastNameChange(e) {        
-        e.preventDefault();
-        this.setState({
-            last_name: e.target.value
-          })  
       }
 
       handleGuideChange(e) {        
@@ -69,19 +42,6 @@ class ReservationNew extends React.Component {
     render() {
         return (
           <form className="new-res" onSubmit={this.onFormSubmit}>
-              
-            <input className="input"
-                name="first_name"
-                type="text" 
-                placeholder="First Name"
-                onChange={this.handleFirstNameChange}
-            />
-            <input className="input"
-                name="last_name"
-                type="text" 
-                placeholder="Last Name"
-                onChange={this.handleLastNameChange}
-            />
             <DatePicker
                 className="datepicker"
                 selected={this.state.reservation_date}
@@ -90,8 +50,8 @@ class ReservationNew extends React.Component {
                 dateFormat="MM/dd/yyyy"
             />
             {/* Go back and dynamically populate this picker */}
-            <select
-                name="cars"
+            Guide:  <select
+                name="Guide"
                 className="input"
                 onChange={this.handleGuideChange}
                 >
