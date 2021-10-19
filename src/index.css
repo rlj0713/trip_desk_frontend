@@ -168,3 +168,17 @@ button {
   border-width: 1px;
   font-size: 16px;
 }
+
+.new-guide {
+  display: block;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 8px;
+  background-color: rgb(132, 129, 122);
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 5%;
+  margin-left: 20%;
+  color: white;
+}

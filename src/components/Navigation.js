@@ -9,7 +9,8 @@ export default class Navigation extends React.Component {
                 <a href="http://localhost:3001/">Reservations</a>
                 <a href="http://localhost:3001/guides">Guides</a>
                 <a href="http://localhost:3001/customers">Customers</a>
-                <a href="http://localhost:3001/reservations/new">Create Reservation</a>
+                <a class="navButton" href="http://localhost:3001/reservations/new">Create Reservation</a>
+                <a class="navButton" href="http://localhost:3001/guides/new">Create Guide</a>
             </nav>
         )
     }
