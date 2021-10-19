@@ -19,6 +19,9 @@ export const deleteGuides = (guideObject) => {
         .then(res => {
             dispatch({ type: 'DELETE_GUIDE', payload: guideObject }) 
         })
+        .catch((error) => {
+            alert('This guide is on the schedule.  To delete, please remove him/her from the schedule.');
+        })
     }
     
 }
