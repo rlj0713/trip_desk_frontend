@@ -8,10 +8,16 @@ class GuidesList extends React.Component {
         this.props.fetchGuidesWithDispatch()
     }
 
+    // This successfully deletes the guide but does not trigger a re-render.
+    // There is an issue:
+    // A guide that is assigned a reservation can be deleted causing an error on the
+    //     reservation index page.
     handleDelete(guide) {
         let g = window.confirm("Are you sure you want to remove this guide?");
             if (g === true) {
-                this.props.deleteGuidesWithDispatch(g)
+                this.props.deleteGuidesWithDispatch(guide)
+                // This is very sloppy
+                window.location.replace('http://localhost:3001/guides')
         }
     }
 

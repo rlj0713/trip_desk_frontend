@@ -22,6 +22,15 @@ class ReservationNew extends React.Component {
         this.onFormSubmit = this.onFormSubmit.bind(this);
     }
     
+    // Fix this redundancy
+    // handleAnyChange(event, key) {
+    //   event.preventDefault();
+    //   this.setState({
+    //     key: event.target.value
+    //   })
+    // }
+
+
       handleDateChange(date) {
         this.setState({
           reservation_date: date
@@ -49,6 +58,7 @@ class ReservationNew extends React.Component {
           })  
       }
     
+      // Rewrite this as a ternary operator to trigger re-render properly
       onFormSubmit(e) {
         e.preventDefault();
         // const userInput = this.state
