@@ -18,11 +18,13 @@ class ReservationNew extends React.Component {
     };
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleGuideChange = this.handleGuideChange.bind(this);
+    this.handleCustomerChange = this.handleCustomerChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchGuidesWithDispatch();
+    this.props.fetchCustomersWithDispatch();
   }
 
   populateGuideDropdown = () => {
@@ -91,6 +93,14 @@ class ReservationNew extends React.Component {
           onChange={this.handleGuideChange}
         >
           {this.populateGuideDropdown()}
+        </select>
+        Customer:{" "}
+        <select
+          name="Customer"
+          className="input"
+          onChange={this.handleCustomerChange}
+        >
+          {this.populateCustomerDropdown()}
         </select>
         <button type="submit">Add Reservation</button>
       </form>
