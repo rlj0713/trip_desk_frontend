@@ -196,3 +196,11 @@ button {
   border-width: 1px;
   font-size: 16px;
 }
+
+.specialLink {
+  color: rgb(204, 174, 98);
+}
+
+.regularLink {
+  color: rgb(44, 44, 84);
+}
