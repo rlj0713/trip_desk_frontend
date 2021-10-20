@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createReservation } from '../actions/reservationActions';
 import { fetchGuides } from '../actions/guideActions';
+import { fetchCustomers } from '../actions/customerActions';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -34,6 +35,16 @@ class ReservationNew extends React.Component {
     }
   };
 
+  populateCustomerDropdown = () => {
+    if (this.props.customers) {
+      return(
+        this.props.customers.map(customer => 
+          <option value={customer.id}>{customer.attributes.first_name} {customer.attributes.last_name}</option>
+        )
+      )
+    }
+  };
+
   // GO back and fix date off by one bug
   handleDateChange(date) {
     this.setState({
@@ -45,6 +56,13 @@ class ReservationNew extends React.Component {
     e.preventDefault();
     this.setState({
       guide_id: e.target.value,
+    });
+  }
+
+  handleCustomerChange(e) {
+    e.preventDefault();
+    this.setState({
+      customer_id: e.target.value,
     });
   }
 
@@ -66,7 +84,6 @@ class ReservationNew extends React.Component {
           name="date"
           dateFormat="MM/dd/yyyy"
         />
-        {/* Go back and dynamically populate this picker */}
         Guide:{" "}
         <select
           name="Guide"
@@ -85,6 +102,7 @@ const mapStateToProps = (state) => {
     return {
         reservations: state.reservations,
         guides: state.guidesReducer.guides.data,
+        customers: state.customersReducer.customers.data,
         loading: state.loading
     }
 }
@@ -92,7 +110,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       createReservationWithDispatch: (userInput) => dispatch(createReservation(userInput)),
-      fetchGuidesWithDispatch: () => dispatch(fetchGuides())
+      fetchGuidesWithDispatch: () => dispatch(fetchGuides()),
+      fetchCustomersWithDispatch: () => dispatch(fetchCustomers())
     }
   } 
 

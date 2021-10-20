@@ -141,7 +141,7 @@ button {
   font-size: 18px;
 }
 
-.guideCard {
+.guideCard, .customerCard {
   display: inline-block;
   width: 300px;
   height: 300px;
@@ -156,7 +156,7 @@ button {
   margin-left: 20px;;
 }
 
-.crudButtonGuide {
+.crudButtonGuide, .crudButtonCustomer {
   position: relative;
   bottom: 20px;
   right: 20px;
@@ -169,7 +169,7 @@ button {
   font-size: 16px;
 }
 
-.new-guide {
+.new-guide, .new-customer {
   display: inline-block;
   padding: 10px;
   margin-top: 20px;
