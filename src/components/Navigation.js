@@ -11,6 +11,10 @@ export default class Navigation extends React.Component {
             return (
                 <a href="http://localhost:3001/guides/new">Create Guide</a>
             )
+        } else if (window.location.href === "http://localhost:3001/customers") {
+            return (
+                <a href="http://localhost:3001/customers/new">Create Customer</a>
+            )
         }
     }
 

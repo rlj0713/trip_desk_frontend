@@ -10,11 +10,13 @@ import thunk from 'redux-thunk'
 
 import reservationsReducer from './reducers/reservationsReducer.js';
 import guidesReducer from './reducers/guidesReducer.js';
+import customersReducer from './reducers/customersReducer.js';
 import {combineReducers} from 'redux'
 
 const allReducers = combineReducers({
   reservationsReducer,
-  guidesReducer
+  guidesReducer,
+  customersReducer
 })
 
 // Why do my fetch requests fail when using combineReducer?

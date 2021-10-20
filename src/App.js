@@ -12,6 +12,9 @@ import ReservationNew from './components/ReservationNew'
 import GuidesList from './components/GuidesList'
 import GuideNew from './components/GuideNew'
 
+import CustomersList from './components/CustomersList'
+import CustomerNew from './components/CustomerNew'
+
 import {
   BrowserRouter as Router,
   Route
@@ -38,6 +41,9 @@ class App extends Component {
 
           <Route path='/guides/new' render={routerProps => <GuideNew {...routerProps} guides={this.props.guides}/>}/>
           <Route path='/guides' render={routerProps => <GuidesList {...routerProps} guides={this.props.guides}/>}/>
+
+          {/* <Route path='/customer/new' render={routerProps => <CustomerNew {...routerProps} guides={this.props.customers}/>}/> */}
+          <Route path='/customers' render={routerProps => <CustomersList {...routerProps} guides={this.props.customers}/>}/>
         </div>
 
       </Router>
