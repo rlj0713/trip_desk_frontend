@@ -184,7 +184,7 @@ button {
   margin-bottom: 20px;
 }
 
-.crudButtonNewGuide {
+.crudButtonNewGuide, .crudButtonNewCustomer {
   position: relative;
   bottom: 20px;
   right: 20px;

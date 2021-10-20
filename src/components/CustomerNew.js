@@ -6,8 +6,8 @@ class CustomerNew extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-          c_first_name: '',
-          c_last_name: ''
+          first_name: '',
+          last_name: ''
         };
         this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
         this.handleLastNameChange = this.handleLastNameChange.bind(this);
@@ -17,14 +17,14 @@ class CustomerNew extends React.Component {
     handleFirstNameChange(e) {        
         e.preventDefault();
         this.setState({
-            c_first_name: e.target.value
+            first_name: e.target.value
           })  
     }
 
     handleLastNameChange(e) {        
         e.preventDefault();
         this.setState({
-            c_last_name: e.target.value
+            last_name: e.target.value
           })  
     }
 

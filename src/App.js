@@ -42,7 +42,7 @@ class App extends Component {
           <Route path='/guides/new' render={routerProps => <GuideNew {...routerProps} guides={this.props.guides}/>}/>
           <Route path='/guides' render={routerProps => <GuidesList {...routerProps} guides={this.props.guides}/>}/>
 
-          <Route path='/customer/new' render={routerProps => <CustomerNew {...routerProps} customers={this.props.customers}/>}/>
+          <Route path='/customers/new' render={routerProps => <CustomerNew {...routerProps} customers={this.props.customers}/>}/>
           <Route path='/customers' render={routerProps => <CustomersList {...routerProps} customers={this.props.customers}/>}/>
         </div>
 
