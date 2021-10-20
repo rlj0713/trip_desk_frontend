@@ -10,7 +10,7 @@ class ReservationNew extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reservation_date: new Date(),
+      reservation_date: null,
       guide_id: null,
       customer_id: null,
       guides: [],
@@ -74,10 +74,6 @@ class ReservationNew extends React.Component {
           onChange={this.handleGuideChange}
         >
           {this.populateGuideDropdown()}
-          {/* <option value="0">Unselected</option>
-                  <option value="1">Brady Chadley</option>
-                  <option value="2">Shred McNasty</option>
-                  <option value="3">Broseph Broseidon</option> */}
         </select>
         <button type="submit">Add Reservation</button>
       </form>

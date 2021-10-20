@@ -27,7 +27,6 @@ export const deleteReservations = (reservationObject) => {
 export const createReservation = (userInput) => {
     let _data = {
         reservation_date: userInput.reservation_date,
-        // last_name: userInput.first_name,
         customer_id: 1,
         guide_id: userInput.guide_id
     }
