@@ -20,7 +20,7 @@ export const deleteGuides = (guideObject) => {
             dispatch({ type: 'DELETE_GUIDE', payload: guideObject }) 
         })
         .catch((error) => {
-            alert('This guide is on the schedule.  To delete, please remove him/her from the schedule.');
+            alert('If this guide is on the schedule.  To delete, please remove him/her from the schedule.');
         })
     }
     
