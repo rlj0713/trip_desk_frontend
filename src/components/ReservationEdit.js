@@ -53,11 +53,11 @@ class ReservationEdit extends React.Component {
     };
 
     populateGuideDropdown = () => {
-      console.log(this.props)
+      console.log(this.state.guide_id)
       if (this.props.guides) {
         return(
           this.props.guides.map(guide => 
-            <option value={guide.attributes.id}>{guide.attributes.first_name} {guide.attributes.last_name}</option>
+            <option value={guide.id}>{guide.attributes.first_name} {guide.attributes.last_name}</option>
           )
         )
       }
@@ -92,7 +92,6 @@ class ReservationEdit extends React.Component {
         {" "}
         <select
           name="Guide"
-          value=""
           className="input"
           onChange={this.handleGuideChange}
         >

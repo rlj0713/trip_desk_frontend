@@ -47,7 +47,6 @@ class ReservationNew extends React.Component {
     }
   };
 
-  // GO back and fix date off by one bug
   handleDateChange(date) {
     this.setState({
       reservation_date: date,
