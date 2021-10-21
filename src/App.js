@@ -8,6 +8,7 @@ import Navigation from './components/Navigation.js'
 
 import ReservationsList from './components/ReservationsList'
 import ReservationNew from './components/ReservationNew'
+import ReservationEdit from './components/ReservationEdit'
 
 import GuidesList from './components/GuidesList'
 import GuideNew from './components/GuideNew'
@@ -36,6 +37,7 @@ class App extends Component {
             <Navigation />
           </header>
           <Route exact path="/" render={routerProps => <ReservationsList {...routerProps} reservations={this.props.reservations}/>}/>
+          <Route path='/reservations/:id/edit' render={routerProps => <ReservationEdit {...routerProps} reservations={this.props.reservations}/>}/>
           <Route path='/reservations/new' render={routerProps => <ReservationNew {...routerProps} reservations={this.props.reservations}/>}/>
           <Route path='/reservations' render={routerProps => <ReservationsList {...routerProps} reservations={this.props.reservations}/>}/>
 

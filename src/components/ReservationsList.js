@@ -1,5 +1,6 @@
 import React from 'react';
 import { deleteReservations } from '../actions/reservationActions';
+import { updateReservations } from '../actions/reservationActions';
 import { connect } from 'react-redux';
 
 class ReservationsList extends React.Component {
@@ -18,6 +19,14 @@ class ReservationsList extends React.Component {
     }
   }
 
+  showReservationEdit(res) {
+    window.location.replace(`http://localhost:3001/reservations/${res.id}/edit`)
+  }
+
+  handleEdit(res) {
+    this.props.updateReservationsWithDispatch(res)
+  }
+
   render() {
     return (
       this.props.reservations.map(reservation => 
@@ -27,7 +36,7 @@ class ReservationsList extends React.Component {
             Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}<br/>
             <div>
               <button className="crudButton" onClick={() => this.handleDelete(reservation)}>Delete</button>
-              {/* <button className="crudButton" onClick={() => this.handleEdit(reservation)}>Edit</button> */}
+              <button className="crudButton" onClick={() => this.showReservationEdit(reservation)}>Edit</button>
             </div>
         </div>)
     )
@@ -36,7 +45,8 @@ class ReservationsList extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteReservationsWithDispatch: (anyReservationObject) => dispatch(deleteReservations(anyReservationObject))
+    deleteReservationsWithDispatch: (anyReservationObject) => dispatch(deleteReservations(anyReservationObject)),
+    updateReservationsWithDispatch: (anyReservationObject) => dispatch(updateReservations(anyReservationObject))
   }
 } 
   

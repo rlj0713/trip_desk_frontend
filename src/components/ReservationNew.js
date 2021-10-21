@@ -80,13 +80,14 @@ class ReservationNew extends React.Component {
     return (
       <form className="new-res" onSubmit={this.onFormSubmit}>
         <DatePicker
+          // value="Choose Date"
           className="datepicker"
           selected={this.state.reservation_date}
           onChange={this.handleDateChange}
           name="date"
           dateFormat="MM/dd/yyyy"
         />
-        Guide:{" "}
+        {" "}
         <select
           name="Guide"
           className="input"
@@ -94,7 +95,7 @@ class ReservationNew extends React.Component {
         >
           {this.populateGuideDropdown()}
         </select>
-        Customer:{" "}
+        {" "}
         <select
           name="Customer"
           className="input"

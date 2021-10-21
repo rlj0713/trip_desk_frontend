@@ -23,6 +23,33 @@ export const deleteReservations = (reservationObject) => {
     
 }
 
+export const showReservation = (res) => {
+    
+}
+
+export const updateReservations = (res) => {
+
+    return(dispatch) => {
+
+        <div></div>
+
+        // fetch(`http://localhost:3001/${res.id}/edit`, {
+        // method: "PUT",
+        // headers: { "Content-Type": "application/json" },
+        // body: JSON.stringify(data)
+        // })
+        // .then((response) => {
+        //     return response.json();
+        // })
+        // .then((data) =>
+        //     // this is the data we get after putting our data,
+        //     console.log(data)
+        // );
+
+    }
+
+}
+
 // Go back and add customer_id after creating full CRUD for customer
 export const createReservation = (userInput) => {
     let _data = {
