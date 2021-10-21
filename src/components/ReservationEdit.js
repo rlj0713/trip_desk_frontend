@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { fetchCustomers } from '../actions/customerActions';
+import { fetchGuides } from '../actions/guideActions';
 import { connect } from 'react-redux';
 
 class ReservationEdit extends React.Component {
@@ -14,10 +15,11 @@ class ReservationEdit extends React.Component {
         resObject: {},
         reservation_date: null,
         guide_id: null,
-        customer_id: null
+        customer: null,
+        guides: []
       }
       // this.handleDateChange = this.handleDateChange.bind(this);
-      // this.handleGuideChange = this.handleGuideChange.bind(this);
+      this.handleGuideChange = this.handleGuideChange.bind(this);
       this.handleCustomerChange = this.handleCustomerChange.bind(this);
       // this.onFormSubmit = this.onFormSubmit.bind(this);
     }
@@ -27,9 +29,10 @@ class ReservationEdit extends React.Component {
       const foundObject = this.reservationToEdit(this.state.resObjectId)
       this.setState({
         resObject: foundObject,
-        reservation_date: this.state.resObject.reservation_date
+        // reservation_date: this.state.resObject.reservation_date,
       })
       this.props.fetchCustomersWithDispatch();
+      this.props.fetchGuidesWithDispatch();
     }
 
     handleCustomerChange(e) {
@@ -40,7 +43,6 @@ class ReservationEdit extends React.Component {
     }
     
     populateCustomerDropdown = () => {
-      console.log(this.props.reservations)
       if (this.props.reservations) {
         return(
           this.props.reservations.map(res => 
@@ -49,10 +51,28 @@ class ReservationEdit extends React.Component {
         )
       }
     };
+
+    populateGuideDropdown = () => {
+      console.log(this.props)
+      if (this.props.guides) {
+        return(
+          this.props.guides.map(guide => 
+            <option value={guide.attributes.id}>{guide.attributes.first_name} {guide.attributes.last_name}</option>
+          )
+        )
+      }
+    };
+
+    handleGuideChange(e) {
+      e.preventDefault();
+      this.setState({
+        guide_id: e.target.value,
+      });
+    }
     
     reservationToEdit = (resObjectId) => {
         return this.props.reservations.find(res => {
-          return res.id === this.state.resObjectId ? res : "hello world"
+          return res.id === this.state.resObjectId ? res : "Loading..."
         }
       )
     }
@@ -76,7 +96,7 @@ class ReservationEdit extends React.Component {
           className="input"
           onChange={this.handleGuideChange}
         >
-          {/* {this.populateGuideDropdown()} */}
+          {this.populateGuideDropdown()}
         </select>
         {" "}
         <select
@@ -92,10 +112,19 @@ class ReservationEdit extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+      guides: state.guidesReducer.guides.data,
+      customers: state.customersReducer.customers.data,
+      loading: state.loading
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCustomersWithDispatch: () => dispatch(fetchCustomers())
+    fetchCustomersWithDispatch: () => dispatch(fetchCustomers()),
+    fetchGuidesWithDispatch: () => dispatch(fetchGuides())
   }
 } 
 
-export default connect(null, mapDispatchToProps)(ReservationEdit);
+export default connect(mapStateToProps, mapDispatchToProps)(ReservationEdit);
