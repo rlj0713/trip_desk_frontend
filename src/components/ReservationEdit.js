@@ -18,7 +18,7 @@ class ReservationEdit extends React.Component {
         customer: null,
         guides: []
       }
-      // this.handleDateChange = this.handleDateChange.bind(this);
+      this.handleDateChange = this.handleDateChange.bind(this);
       this.handleGuideChange = this.handleGuideChange.bind(this);
       this.handleCustomerChange = this.handleCustomerChange.bind(this);
       // this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -29,7 +29,7 @@ class ReservationEdit extends React.Component {
       const foundObject = this.reservationToEdit(this.state.resObjectId)
       this.setState({
         resObject: foundObject,
-        // reservation_date: this.state.resObject.reservation_date,
+        reservation_date: this.state.resObject.reservation_date,
       })
       this.props.fetchCustomersWithDispatch();
       this.props.fetchGuidesWithDispatch();
@@ -53,7 +53,6 @@ class ReservationEdit extends React.Component {
     };
 
     populateGuideDropdown = () => {
-      console.log(this.state.guide_id)
       if (this.props.guides) {
         return(
           this.props.guides.map(guide => 
@@ -67,6 +66,12 @@ class ReservationEdit extends React.Component {
       e.preventDefault();
       this.setState({
         guide_id: e.target.value,
+      });
+    }
+
+    handleDateChange(date) {
+      this.setState({
+        reservation_date: date,
       });
     }
     
@@ -84,8 +89,8 @@ class ReservationEdit extends React.Component {
         <DatePicker
         //   value={this.state.resObject.reservation_date}
           className="datepicker"
-        //   selected={this.state.reservation_date}
-        //   onChange={this.handleDateChange}
+          selected={this.state.reservation_date}
+          onChange={this.handleDateChange}
           name="date"
           dateFormat="MM/dd/yyyy"
         />
