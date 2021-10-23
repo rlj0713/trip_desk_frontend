@@ -79,7 +79,6 @@ class ReservationNew extends React.Component {
     return (
       <form className="new-res" onSubmit={this.onFormSubmit}>
         <DatePicker
-          // value="Choose Date"
           className="datepicker"
           selected={this.state.reservation_date}
           onChange={this.handleDateChange}

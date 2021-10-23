@@ -7,87 +7,83 @@ import { fetchGuides } from '../actions/guideActions';
 import { connect } from 'react-redux';
 
 class ReservationEdit extends React.Component {
-
-    constructor(props) {
-      super(props)
-      this.state = {
-        resObjectId: props.match.params.id,
-        resObject: {},
-        reservation_date: null,
-        guide_id: null,
-        customer: null,
-        guides: []
-      }
-      this.handleDateChange = this.handleDateChange.bind(this);
-      this.handleGuideChange = this.handleGuideChange.bind(this);
-      this.handleCustomerChange = this.handleCustomerChange.bind(this);
-      // this.onFormSubmit = this.onFormSubmit.bind(this);
+  constructor(props) {
+    super(props)
+    this.state = {
+      resObjectId: props.match.params.id,
+      resObject: []
     }
+    this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleGuideChange = this.handleGuideChange.bind(this);
+    this.handleCustomerChange = this.handleCustomerChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+  }
 
-    // I need to make the old date appear in the form as the default value when rendering edit
-    componentDidMount() {
-      const foundObject = this.reservationToEdit(this.state.resObjectId)
-      this.setState({
-        resObject: foundObject,
-        reservation_date: this.state.resObject.reservation_date,
-      })
-      this.props.fetchCustomersWithDispatch();
-      this.props.fetchGuidesWithDispatch();
-    }
+  componentDidMount() {
+    let selectedReservation = this.props.reservations.filter(res => res.id === this.state.resObjectId)
 
-    handleCustomerChange(e) {
-      e.preventDefault();
-      this.setState({
-        customer_id: e.target.value,
-      });
-    }
-    
-    populateCustomerDropdown = () => {
-      if (this.props.reservations) {
-        return(
-          this.props.reservations.map(res => 
-            <option value={res.customer.id}>{res.customer.first_name} {res.customer.last_name}</option>
-          )
+    this.setState({
+      resObject: selectedReservation
+    })
+    this.props.fetchCustomersWithDispatch();
+    this.props.fetchGuidesWithDispatch();
+  }
+
+  onFormSubmit(e) {
+    e.preventDefault();
+    console.log(this.state)
+  };
+
+  reservationToEdit = (resObjectId) => {
+    return this.props.reservations.find(res => {
+      return res.id === this.state.resObjectId ? res : "Loading..."
+    })
+  }
+
+  handleCustomerChange(e) {
+    e.preventDefault();
+    this.setState({
+      customer_id: e.target.value,
+    });
+  }
+  
+  populateCustomerDropdown = () => {
+    if (this.props.reservations) {
+      return(
+        this.props.reservations.map(res => 
+          <option value={res.customer.id}>{res.customer.first_name} {res.customer.last_name}</option>
         )
-      }
-    };
-
-    populateGuideDropdown = () => {
-      if (this.props.guides) {
-        return(
-          this.props.guides.map(guide => 
-            <option value={guide.id}>{guide.attributes.first_name} {guide.attributes.last_name}</option>
-          )
-        )
-      }
-    };
-
-    handleGuideChange(e) {
-      e.preventDefault();
-      this.setState({
-        guide_id: e.target.value,
-      });
-    }
-
-    handleDateChange(date) {
-      this.setState({
-        reservation_date: date,
-      });
-    }
-    
-    reservationToEdit = (resObjectId) => {
-        return this.props.reservations.find(res => {
-          return res.id === this.state.resObjectId ? res : "Loading..."
-        }
       )
     }
+  };
 
-    // Attempting to single out the object that is to be edited
+  populateGuideDropdown = () => {
+    if (this.props.guides) {
+      return(
+        this.props.guides.map(guide => 
+          <option value={guide.id}>{guide.attributes.first_name} {guide.attributes.last_name}</option>
+        )
+      )
+    }
+  };
+
+  handleGuideChange(e) {
+    e.preventDefault();
+    this.setState({
+      guide_id: e.target.value,
+    });
+  }
+
+  handleDateChange(date) {
+    this.setState({
+      reservation_date: date,
+    });
+  }
+    
   render() {
     return (
       <form className="new-res" onSubmit={this.onFormSubmit}>
         <DatePicker
-        //   value={this.state.resObject.reservation_date}
           className="datepicker"
           selected={this.state.reservation_date}
           onChange={this.handleDateChange}
@@ -118,9 +114,9 @@ class ReservationEdit extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-      guides: state.guidesReducer.guides.data,
-      customers: state.customersReducer.customers.data,
-      loading: state.loading
+    guides: state.guidesReducer.guides.data,
+    customers: state.customersReducer.customers.data,
+    loading: state.loading,
   }
 }
 

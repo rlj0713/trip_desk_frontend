@@ -1,6 +1,6 @@
 import React from 'react';
 import { deleteReservations } from '../actions/reservationActions';
-import { updateReservations } from '../actions/reservationActions';
+// import { updateReservations } from '../actions/reservationActions';
 import { connect } from 'react-redux';
 
 class ReservationsList extends React.Component {
@@ -19,25 +19,17 @@ class ReservationsList extends React.Component {
     }
   }
 
-  showReservationEdit(res) {
-    window.location.replace(`http://localhost:3001/reservations/${res.id}/edit`)
-  }
-
-  handleEdit(res) {
-    this.props.updateReservationsWithDispatch(res)
-  }
-
   render() {
     return (
       this.props.reservations.map(reservation => 
         <div key={reservation.id} className="reservationCard">
-            Reservation Date: {this.convertDate(reservation.reservation_date)}<br/>
-            Guide: { reservation.guide_id ? reservation.guide.first_name : "No Guide Selected" }<br/>
-            Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}<br/>
-            <div>
-              <button className="crudButton" onClick={() => this.handleDelete(reservation)}>Delete</button>
-              <button className="crudButton" onClick={() => this.showReservationEdit(reservation)}>Edit</button>
-            </div>
+          Reservation Date: {this.convertDate(reservation.reservation_date)}<br/>
+          Guide: { reservation.guide_id ? reservation.guide.first_name : "No Guide Selected" }<br/>
+          Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}<br/>
+          <div>
+            <button className="crudButton" onClick={() => this.handleDelete(reservation)}>Delete</button>
+            <button className="crudButton" onClick={() => this.showReservationEdit(reservation)}>Edit</button>
+          </div>
         </div>)
     )
   }
@@ -45,10 +37,8 @@ class ReservationsList extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteReservationsWithDispatch: (anyReservationObject) => dispatch(deleteReservations(anyReservationObject)),
-    updateReservationsWithDispatch: (anyReservationObject) => dispatch(updateReservations(anyReservationObject))
+    deleteReservationsWithDispatch: (anyReservationObject) => dispatch(deleteReservations(anyReservationObject))
   }
 } 
-  
 
 export default connect(null, mapDispatchToProps)(ReservationsList);
