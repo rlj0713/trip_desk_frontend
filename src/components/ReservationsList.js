@@ -1,6 +1,5 @@
 import React from 'react';
 import { deleteReservations } from '../actions/reservationActions';
-// import { updateReservations } from '../actions/reservationActions';
 import { connect } from 'react-redux';
 
 class ReservationsList extends React.Component {

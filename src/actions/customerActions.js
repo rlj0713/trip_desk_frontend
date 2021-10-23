@@ -1,7 +1,6 @@
 export const fetchCustomers = () => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_CUSTOMERS'})
-        
         fetch('http://localhost:3000/customers.json').then(response => {
             return response.json()
         }).then(responseJSON => {
@@ -11,11 +10,8 @@ export const fetchCustomers = () => {
 }
 
 export const deleteCustomers = (customerObject) => {
-    
     return(dispatch) => {
-
         fetch(`http://localhost:3000/customers/${customerObject.id}.json`, { method: "DELETE" })
-
         .then(res => {
             dispatch({ type: 'DELETE_CUSTOMER', payload: customerObject }) 
         })
@@ -23,7 +19,6 @@ export const deleteCustomers = (customerObject) => {
             alert('Before deleting a customer, please remove him/her from the schedule.');
         })
     }
-    
 }
 
 export const createCustomer = (userInput) => {

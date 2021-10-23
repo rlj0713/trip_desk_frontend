@@ -1,7 +1,6 @@
 export const fetchGuides = () => {
     return (dispatch) => {
-        dispatch({ type: 'LOADING_GUIDES'})
-        
+        dispatch({ type: 'LOADING_GUIDES'}) 
         fetch('http://localhost:3000/guides.json').then(response => {
             return response.json()
         }).then(responseJSON => {
@@ -11,11 +10,8 @@ export const fetchGuides = () => {
 }
 
 export const deleteGuides = (guideObject) => {
-    
     return(dispatch) => {
-
         fetch(`http://localhost:3000/guides/${guideObject.id}.json`, { method: "DELETE" })
-
         .then(res => {
             dispatch({ type: 'DELETE_GUIDE', payload: guideObject }) 
         })
@@ -23,7 +19,6 @@ export const deleteGuides = (guideObject) => {
             alert('If this guide is on the schedule.  To delete, please remove him/her from the schedule.');
         })
     }
-    
 }
 
 export const createGuide = (userInput) => {
