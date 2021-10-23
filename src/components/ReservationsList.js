@@ -28,7 +28,6 @@ class ReservationsList extends React.Component {
           Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}<br/>
           <div>
             <button className="crudButton" onClick={() => this.handleDelete(reservation)}>Delete</button>
-            <button className="crudButton" onClick={() => this.showReservationEdit(reservation)}>Edit</button>
           </div>
         </div>)
     )
