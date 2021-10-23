@@ -14,7 +14,7 @@ class ReservationNew extends React.Component {
       reservation_date: null,
       guide_id: null,
       customer_id: null,
-      guides: [],
+      guides: []
     };
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleGuideChange = this.handleGuideChange.bind(this);
@@ -78,7 +78,9 @@ class ReservationNew extends React.Component {
   render() {
     return (
       <form className="new-res" onSubmit={this.onFormSubmit}>
+        <label for="date" className="datepicker-label">Date:</label>
         <DatePicker
+          id="date"
           className="datepicker"
           selected={this.state.reservation_date}
           onChange={this.handleDateChange}
@@ -86,15 +88,19 @@ class ReservationNew extends React.Component {
           dateFormat="MM/dd/yyyy"
         />
         {" "}
+        <label for="guide" className="guide-label">Guide:</label>
         <select
           name="Guide"
+          id="guide"
           className="input"
           onChange={this.handleGuideChange}
         >
           {this.populateGuideDropdown()}
         </select>
         {" "}
+        <label for="customer" className="customer-label">Customer:</label>
         <select
+          id="customer"
           name="Customer"
           className="input"
           onChange={this.handleCustomerChange}

@@ -126,6 +126,18 @@ a {
   padding: 5px;
 }
 
+.datepicker-label, .guide-label, .customer-label {
+  display: block;
+  position: relative;
+  top: 10px;
+  left: 3px;
+  margin-top: 0px;
+  margin-right: 94%;
+  border-radius: 8px;
+  /* border-width: 1px; */
+  /* padding: 5px; */
+}
+
 .input {
   display: block;
   position: relative;
