@@ -225,3 +225,10 @@ button {
 .regularLink {
   color: rgb(44, 44, 84);
 }
+
+.picture {
+  /* display: relative;
+  position: relative;
+  top: 75px;
+  left: 0px; */
+}

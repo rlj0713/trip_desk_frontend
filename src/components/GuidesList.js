@@ -1,5 +1,6 @@
 import React from 'react';
 import { fetchGuides, deleteGuides } from '../actions/guideActions';
+import Picture from './Picture.js';
 import { connect } from 'react-redux';
 
 class GuidesList extends React.Component {
@@ -24,6 +25,7 @@ class GuidesList extends React.Component {
                     First Name: { guide.attributes.first_name }<br/>
                     Last Name: { guide.attributes.last_name }<br/>
                     <div>
+                    <Picture />
                     <   button className="crudButtonGuide" onClick={() => this.handleDelete(guide)}>Delete</button>
                     </div>
                 </div>)
