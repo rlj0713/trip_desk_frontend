@@ -1,6 +1,7 @@
 import React from 'react';
 import { fetchCustomers, deleteCustomers } from '../actions/customerActions';
 import { connect } from 'react-redux';
+import Picture from './Picture.js';
 
 class CustomersList extends React.Component {
   
@@ -22,6 +23,7 @@ class CustomersList extends React.Component {
                 <div key={customer.id} className="customerCard">
                     First Name: { customer.attributes.first_name }<br/>
                     Last Name: { customer.attributes.last_name }<br/>
+                    <Picture />
                     <div>
                     <   button className="crudButtonCustomer" onClick={() => this.handleDelete(customer)}>Delete</button>
                     </div>

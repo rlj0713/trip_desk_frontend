@@ -24,8 +24,8 @@ class GuidesList extends React.Component {
                 <div key={guide.id} className="guideCard">
                     First Name: { guide.attributes.first_name }<br/>
                     Last Name: { guide.attributes.last_name }<br/>
-                    <div>
                     <Picture />
+                    <div>
                     <   button className="crudButtonGuide" onClick={() => this.handleDelete(guide)}>Delete</button>
                     </div>
                 </div>)

@@ -3,9 +3,10 @@ import React from 'react';
 export default class Picture extends React.Component {
     render() {
         return (
-            <div class="picture">
-                Hello World
-                <image src="https://github.com/rlj0713/trip_desk_frontend/blob/master/src/resources/person-icon.png"></image>
+            <div className="picture-container">
+                <div className="picture">
+                    <img src="https://www.veryicon.com/download/png/miscellaneous/thick-linear-icon-library/person-14?s=256" alt=" "></img>
+                </div>
             </div>
         )
     }
