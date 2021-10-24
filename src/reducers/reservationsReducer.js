@@ -1,4 +1,4 @@
-const reservationsReducer = (state = { reservations: [], loading: false }, action) => {
+const reservationsReducer = (state = { reservations: [], reservation: [], loading: false }, action) => {
     switch(action.type) {
         case 'LOADING_RESERVATIONS':
             return {
@@ -12,6 +12,12 @@ const reservationsReducer = (state = { reservations: [], loading: false }, actio
             reservations: action.reservations,
             loading: false
             }
+        case 'GET_RESERVATION':
+            return {
+            ...state,
+            reservation: action.reservation,
+            loading: false
+            }    
         case 'DELETE_RESERVATION':
             const newRes = state.reservations.filter(res => {
                 return res.id !== action.payload.id

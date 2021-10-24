@@ -8,6 +8,7 @@ import Navigation from './components/Navigation.js'
 
 import ReservationsList from './components/ReservationsList'
 import ReservationNew from './components/ReservationNew'
+import Reservation from './components/Reservation'
 
 import GuidesList from './components/GuidesList'
 import GuideNew from './components/GuideNew'
@@ -35,6 +36,7 @@ class App extends Component {
           </header>
           <Route exact path="/" render={routerProps => <ReservationsList {...routerProps} reservations={this.props.reservations}/>}/>
           <Route path='/reservations/new' render={routerProps => <ReservationNew {...routerProps} reservations={this.props.reservations}/>}/>
+          <Route path='/reservations/:id' render={routerProps => <Reservation {...routerProps} reservation={this.props.reservation}/>}/>
           <Route path='/reservations' render={routerProps => <ReservationsList {...routerProps} reservations={this.props.reservations}/>}/>
 
           <Route path='/guides/new' render={routerProps => <GuideNew {...routerProps} guides={this.props.guides}/>}/>
@@ -52,6 +54,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     reservations: state.reservationsReducer.reservations,
+    reservation: state.reservationsReducer.reservation,
     loading: state.reservationsReducer.loading
   }
 }

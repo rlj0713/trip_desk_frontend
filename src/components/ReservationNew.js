@@ -14,7 +14,6 @@ class ReservationNew extends React.Component {
       reservation_date: null,
       guide_id: null,
       customer_id: null,
-      guides: []
     };
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleGuideChange = this.handleGuideChange.bind(this);
@@ -52,7 +51,7 @@ class ReservationNew extends React.Component {
       reservation_date: date,
     });
   }
-
+  
   handleGuideChange(e) {
     e.preventDefault();
     this.setState({
@@ -67,10 +66,8 @@ class ReservationNew extends React.Component {
     });
   }
 
-  // Rewrite this as a ternary operator to trigger re-render properly
   onFormSubmit(e) {
     e.preventDefault();
-    // const userInput = this.state
     this.props.createReservationWithDispatch(this.state);
     window.location.replace(`http://localhost:3001/reservations`);
   }

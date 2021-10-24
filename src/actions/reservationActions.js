@@ -18,6 +18,16 @@ export const deleteReservations = (reservationObject) => {
     }
 }
 
+export const getReservation = (id) => {
+    return (dispatch) => {   
+        fetch(`http://localhost:3000/reservations/${id}.json`).then(response => {
+            return response.json()
+        }).then(responseJSON => {
+            dispatch({ type: 'GET_RESERVATION', reservation: responseJSON })
+        })
+    }
+}
+
 export const createReservation = (userInput) => {
     let _data = {
         reservation_date: userInput.reservation_date,
