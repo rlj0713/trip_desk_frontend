@@ -36,7 +36,7 @@ class App extends Component {
           </header>
           <Route exact path="/" render={routerProps => <ReservationsList {...routerProps} reservations={this.props.reservations}/>}/>
           <Route path='/reservations/new' render={routerProps => <ReservationNew {...routerProps} reservations={this.props.reservations}/>}/>
-          <Route path='/reservations/:id' render={routerProps => <Reservation {...routerProps} reservation={this.props.reservation}/>}/>
+          <Route path='/reservation/:id' render={routerProps => <Reservation {...routerProps} reservation={this.props.reservation}/>}/>
           <Route path='/reservations' render={routerProps => <ReservationsList {...routerProps} reservations={this.props.reservations}/>}/>
 
           <Route path='/guides/new' render={routerProps => <GuideNew {...routerProps} guides={this.props.guides}/>}/>

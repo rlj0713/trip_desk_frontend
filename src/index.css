@@ -100,7 +100,7 @@ a {
   margin-top: -36px;
 }
 
-.new-res {
+.new-res, .old-res {
   display: block;
   padding: 10px;
   margin-top: 20px;
@@ -112,6 +112,12 @@ a {
   margin-right: 5%;
   margin-left: 20%;
   color: white;
+}
+
+.old_res {
+  display: inline-block;
+  position: absolute;
+  left: 50px;
 }
 
 .datepicker {

@@ -12,7 +12,7 @@ class ReservationsList extends React.Component {
   }
 
   handleShow(res) {
-    window.location.replace(`http://localhost:3001/reservations/${res.id}`)
+    window.location.replace(`http://localhost:3001/reservation/${res.id}`)
   }
 
   handleDelete(res) {
@@ -31,7 +31,7 @@ class ReservationsList extends React.Component {
           Customer Name: {`${reservation.customer.first_name} ${reservation.customer.last_name}`}<br/>
           <div>
             <button className="crudButton" onClick={() => this.handleDelete(reservation)}>Delete</button>
-            <button className="crudButton" onClick={() => this.handleShow(reservation)}>Edit</button>
+            <button className="crudButton" onClick={() => this.handleShow(reservation)}>Detail</button>
           </div>
         </div>)
     )

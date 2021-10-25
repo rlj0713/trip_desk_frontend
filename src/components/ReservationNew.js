@@ -14,6 +14,7 @@ class ReservationNew extends React.Component {
       reservation_date: null,
       guide_id: null,
       customer_id: null,
+      guides: []
     };
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleGuideChange = this.handleGuideChange.bind(this);
