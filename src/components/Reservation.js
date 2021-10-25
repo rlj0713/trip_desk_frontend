@@ -15,13 +15,21 @@ class Reservation extends React.Component {
     return `${months[parseInt(newDate[1]) - 1]}, ${newDate[2]} ${newDate[0]}`
   }
 
+  handleEdit() {
+    window.location.replace(`http://localhost:3001/reservation/${this.props.match.params.id}/edit`)
+  }
+
   render() {
+    console.log(this.props)
     if (this.props.reservation.customer) {
       return (
         <div className="old-res">
           Reservation Date: {this.convertDate(this.props.reservation.reservation_date)} <br />
           Guide Name: {this.props.reservation.guide.first_name} <br />
           Customer Name: {this.props.reservation.customer.first_name}
+          {/* <div>
+            <button className="crudButton" onClick={() => this.handleEdit()}>Edit</button>
+          </div> */}
         </div>       
       )
     } else {
