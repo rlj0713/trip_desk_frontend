@@ -33,6 +33,7 @@ Project Requirement Checklis:
         - Navigation.js
         - Reservation.js
         - ReservationList.js
+        - Picture.js
         - There are also multiple actions that are stateless
 [X]  There should be 3 routes
         - /reservations/new'
