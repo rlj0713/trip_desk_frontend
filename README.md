@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+Please refer to this repo for the backend of this project - https://github.com/rlj0713/tripDesk
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Walkthrough of TripDesk - https://youtu.be/VvCnDM0UWg0
 
-## Available Scripts
+Name: TripDesk
 
-In the project directory, you can run:
+Description: This application serves as a custom reservation system for a tour-guide company.  The front-desk staff is in charge of keeping track of reservations and assigning guides to work those reservations.  This application keeps track of those reservations and displays a calendar to keep everyone on the same page.
 
-### `yarn start`
+Installation: To host this application or add to the project: 1) Fork this repo along with the backend package. 2) On the rails backend: a) run bundle install b) rails db:migrate & rails db:seed c) boot up a server with rails s 3) Open the application locally using npm install followed by npm start.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To host externally make sure you upgrade the back-end database from sqlite3 to postgres.
+Support: Please e-mail me directly at rlj0713@gmail.com for help and tips on how to make this work on your machine.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Contributing: Please fork this repo and add to my project. All code here is open-source and free to use.
 
-### `yarn test`
+Project Status: This is a stand-alone project with no anticipated regular maintenance.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Project Requirements:
 
-### `yarn build`
+5 min explanation of concept: https://youtu.be/VvCnDM0UWg0
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Blog Post: ############################################
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Project Requirement Checklis:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[X]  The code should be written in ES6 as much as possible
+[X]  Use the create-react-app generator to start your project.
+[X]  Follow the instructions on this repo to setup the generator: create-react-app (Links to an external site.)
+[X]  Your app should have one HTML page to render your react-redux application
+[X]  There should be 5 stateless components
+        - CustomerList.js
+        - GuideList.js
+        - Navigation.js
+        - Reservation.js
+        - ReservationList.js
+        - There are also multiple actions that are stateless
+[X]  There should be 3 routes
+        - /reservations/new'
+        - /reservation/:id'
+        - /reservations'
+        - /guides/new'
+        - /guides'
+        - /customers/new'
+        - /customers'
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[X]  The Application must make use of react-router and proper RESTful routing.
+[X]  Use Redux middleware to respond to and modify state change
+[X]  Make use of async actions and redux-thunk middleware to send data to and receive data from a server
+[X]  Your Rails API should handle the data persistence with a database. You should be using fetch() within your actions to GET and POST data from your API - do not use jQuery methods.
+[X]  Your client-side application should handle the display of data with minimal data manipulation
+[X]  Your application should have some minimal styling: feel free to stick to a framework (like react-bootstrap), but if you want to write (additional) CSS yourself, go for it!
+[X]  Once your app is complete, fill out this checklist.

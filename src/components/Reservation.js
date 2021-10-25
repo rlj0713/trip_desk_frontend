@@ -15,9 +15,9 @@ class Reservation extends React.Component {
     return `${months[parseInt(newDate[1]) - 1]}, ${newDate[2]} ${newDate[0]}`
   }
 
-  handleEdit() {
-    window.location.replace(`http://localhost:3001/reservation/${this.props.match.params.id}/edit`)
-  }
+  // handleEdit() {
+  //   window.location.replace(`http://localhost:3001/reservation/${this.props.match.params.id}/edit`)
+  // }
 
   render() {
     console.log(this.props)
