@@ -19,9 +19,9 @@ Project Requirements:
 
 5 min explanation of concept: https://youtu.be/VvCnDM0UWg0
 
-Blog Post: ############################################
+Blog Post: https://rlj0713.medium.com/the-redux-flow-e762b3d2199f
 
-Project Requirement Checklis:
+Project Requirement Checklist:
 
 [X]  The code should be written in ES6 as much as possible
 [X]  Use the create-react-app generator to start your project.
